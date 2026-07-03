@@ -1,13 +1,9 @@
 export class Matrix {
-  constructor() {
-    throw new Error('Remove this line and implement the function')
-  }
+  rows: number[][];
+  columns: number[][];
 
-  get rows(): unknown {
-    throw new Error('Remove this line and implement the function')
-  }
-
-  get columns(): unknown {
-    throw new Error('Remove this line and implement the function')
+  constructor(matrix: string) {
+    this.rows = matrix.split("\n").map((row) => row.split(" ").map(Number));
+    this.columns = this.rows[0].map((_, i) => this.rows.map((row) => row[i]));
   }
 }
