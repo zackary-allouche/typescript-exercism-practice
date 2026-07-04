@@ -1,15 +1,26 @@
 export class Robot {
-  constructor() {}
+  private _name: string;
+
+  constructor() {
+    this._name = this.generateName();
+  }
 
   public get name(): string {
-    throw new Error('Remove this line and implement the function')
+    return this._name;
   }
 
   public resetName(): void {
-    throw new Error('Remove this line and implement the function')
+    this._name = this.generateName();
   }
 
   public static releaseNames(): void {
-    throw new Error('Remove this line and implement the function')
+  }
+
+  private generateName(): string {
+    const randomCode = 65 + Math.floor(Math.random() * 26);
+    const randomLetter = String.fromCharCode(randomCode);
+    const randomNumber = Math.floor(Math.random() * 10);
+
+    return randomLetter + randomLetter + randomNumber + randomNumber + randomNumber;
   }
 }
