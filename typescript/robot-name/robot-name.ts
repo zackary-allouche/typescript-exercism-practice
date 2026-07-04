@@ -16,11 +16,22 @@ export class Robot {
   public static releaseNames(): void {
   }
 
-  private generateName(): string {
+private generateLetter(): string {
     const randomCode = 65 + Math.floor(Math.random() * 26);
-    const randomLetter = String.fromCharCode(randomCode);
-    const randomNumber = Math.floor(Math.random() * 10);
+    return String.fromCharCode(randomCode);
+  }
 
-    return randomLetter + randomLetter + randomNumber + randomNumber + randomNumber;
+  private generateNumber(): number {
+    return Math.floor(Math.random() * 10);
+  }
+
+  private generateName(): string {
+    return (
+      this.generateLetter() +
+      this.generateNumber() +
+      this.generateNumber() +
+      this.generateNumber() + 
+      this.generateNumber()
+    )
   }
 }
